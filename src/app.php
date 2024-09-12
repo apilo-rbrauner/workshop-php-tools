@@ -9,9 +9,13 @@ declare(strict_types=1);
 
 namespace App;
 
+use App\Generic\CustomException;
+use App\Generic\ListOfExceptions;
 use App\Interfaces\ProductInterface;
 use App\Model\Category;
 use App\Model\CommonProduct;
+
+use Exception;
 
 use function iterator_to_array;
 
@@ -63,3 +67,12 @@ $categories[] = (new Category(3))->setProducts(iterator_to_array(productsGenerat
 foreach ($categories as $category) {
     dump((string) $category);
 }
+
+// ---
+
+/**
+ * @var ListOfExceptions<CustomException> $exceptionsList
+ */
+$exceptionsList = new ListOfExceptions();
+$exceptionsList->add(new CustomException());
+$exceptionsList->add(new Exception());
