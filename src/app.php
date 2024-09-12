@@ -79,8 +79,8 @@ $exceptionsList->add(new Exception());
 
 // ---
 $array = [
-    'item1' => 'lorem ipsum 1',
-    'abc' => 'lorem ipsum 2',
+    'item1'             => 'lorem ipsum 1',
+    'abc'               => 'lorem ipsum 2',
     'item2-lorem-ipsum' => 'lorem ipsum 3',
-    'a' => 'lorem ipsum 4',
+    'a'                 => 'lorem ipsum 4',
 ];
