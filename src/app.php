@@ -31,6 +31,21 @@ function productsGenerator(int $count): iterable
     }
 }
 
+/**
+ * @return ProductInterface[]
+ */
+function productsGenerator2(int $count): array
+{
+    global $id;
+    $result = [];
+
+    for ($i = 1; $i <= $count; $i++) {
+        $result[] = (new CommonProduct($id++))->setName("Name $i")->setDescription("Description $i")->setPrice($i * 10);
+    }
+
+    return $result;
+}
+
 $categories = [];
 
 // Category 1
@@ -39,7 +54,7 @@ $category = (new Category(1))->setProducts($products)->setName('Name 1')->setDes
 $categories[] = $category;
 
 // Category 2
-$products = iterator_to_array(productsGenerator(10));
+$products = productsGenerator2(10);
 $categories[] = (new Category(2))->setProducts($products)->setName('Name 2')->setDescription('Description 2');
 
 // Category 3
